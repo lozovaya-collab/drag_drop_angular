@@ -1,0 +1,21 @@
+<div class="auth-page">
+    <div class="auth-page_form">
+        <div class="auth-page_form__header">
+            <img class="auth-page_form__header icon" src="{{ srcLogo }}" alt="Icon ToDo App" />
+            <div class="header">
+                <h1 class="auth-page_form__header text">Вход</h1>
+            </div>
+            <p class="auth-page_form__header" [ngClass]="{ message: mess, error: err }">
+                {{ mess ? mess : err || '' }}
+            </p>
+        </div>
+        <app-form-auth class="form-auth" [(ngModel)]="user"></app-form-auth>
+
+        <div class="auth-page_form__actions">
+            <app-button [disabled]="isDisabled" [text]="isSignUp ? 'ЗАРЕГИСТРИРОВАТЬСЯ' : 'ВОЙТИ'" (click)="submit()"></app-button>
+            <ng-container *ngIf="!isSignUp">
+                <app-button [type]="'text'" [text]="'Зарегистрироваться'" (click)="toSignUpForm()"></app-button>
+            </ng-container>
+        </div>
+    </div>
+</div>
