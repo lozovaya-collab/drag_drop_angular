@@ -18,6 +18,7 @@ import { AuthPageComponent } from 'src/pages/auth-page/auth-page.component';
 import { DeskComponent } from './components/desk/desk.component';
 import { FormAuthComponent } from './components/form-auth/form-auth.component';
 import { TextInputComponent } from './components/UI/text-input/text-input.component';
+import { TaskComponent } from './components/task/task.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TextInputComponent } from './components/UI/text-input/text-input.compon
     AuthPageComponent,
     DeskComponent,
     FormAuthComponent,
-    TextInputComponent
+    TextInputComponent,
+    TaskComponent,
   ],
   imports: [
     BrowserModule,

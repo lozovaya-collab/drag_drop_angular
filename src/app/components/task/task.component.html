@@ -1,0 +1,11 @@
+<div [style.top]="top" class="desk_tasks__item">
+    <div class="task-wrapper">
+        <div class="task-wrapper_container">
+            <p *ngIf="userLogin !== -1" class="task-wrapper_container__login">{{ userLogin }}</p>
+        </div>
+        <h5 class="task-wrapper_name">{{ task.id + task.title }}</h5>
+        <div class="task-wrapper_container">
+            <img *ngIf="userLogin === -1" class="task-wrapper_container__icon" [src]="src" alt="del">
+        </div>
+    </div>
+</div>

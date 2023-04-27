@@ -1,1 +1,1 @@
-<button class="button {{type === 'text' ? 'button--text' : ''}} {{disabled === true ? 'button--disabled' : ''}}" [disabled]="disabled">{{ text }}</button>
+<button class="button {{classOut}} {{type === 'text' ? 'button--text' : ''}} {{disabled === true ? 'button--disabled' : ''}}" [disabled]="disabled" [style.top]="top">{{ text }}</button>

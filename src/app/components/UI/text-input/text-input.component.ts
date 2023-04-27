@@ -34,8 +34,8 @@ export class TextInputComponent {
   onChange = (value: string) => {};
   onTouched = () => {};
 
-  updateValue(event: Event) {
-    const inputValue = (event.target as HTMLInputElement).value;
+  updateValue(target: any) {
+    const inputValue = target.value;
 
     if (inputValue !== this.value) {
       this.value = inputValue;

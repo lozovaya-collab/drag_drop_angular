@@ -1,1 +1,4 @@
-<p>home-page works!</p>
+<div class="todo-app">
+    <app-desk *ngFor="let status of statuses" [title]="status.name" [statusID]="status.id" [(tasks)]="tasks" [(users)]="users" (tasksChange)="onTasksChange($event)" (usersChange)="onUsersChange($event)">
+    </app-desk>
+</div>
