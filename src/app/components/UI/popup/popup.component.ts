@@ -1,0 +1,13 @@
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-popup',
+  templateUrl: './popup.component.html',
+  styleUrls: ['./popup.component.scss']
+})
+export class PopupComponent {
+  @Input() isOpen: boolean = false;
+  @Input() title: string = ``;
+  @Input() content: string = ``;
+  @Input() actions: any = ``;
+}

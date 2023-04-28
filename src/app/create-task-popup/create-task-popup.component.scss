@@ -1,0 +1,14 @@
+@import "../../assets/scss/main.scss";
+.popup {
+    &_title {
+        @include title($black);
+        text-align: center;
+        font-size: 20px;
+    }
+    &_actions {
+        float: right;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+}

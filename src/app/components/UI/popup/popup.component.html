@@ -1,0 +1,11 @@
+<div *ngIf="isOpen" class="popup">
+    <div class="popup_wrapper">
+        <h3 class="popup_title">
+            {{ title }}
+        </h3>
+        <div class="popup_content">
+            <ng-content select="[content]"></ng-content>
+        </div>
+        <ng-content select="[actions]"></ng-content>
+    </div>
+</div>

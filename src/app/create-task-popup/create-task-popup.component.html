@@ -1,0 +1,7 @@
+<app-popup [isOpen]="isOpen" [title]="titleElement()">
+    <div [innerHtml]="contentElement()" content></div>
+    <div class="popup_actions" actions>
+        <app-button (click)="closePopup()" text="OTMEНА"></app-button>
+        <app-button (click)="saveTask()" text="СОХРАНИТЬ"></app-button>
+    </div>
+</app-popup>

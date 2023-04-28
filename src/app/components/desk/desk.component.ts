@@ -19,8 +19,8 @@ export class DeskComponent implements OnInit,  DoCheck{
 
   public filteredTasks: any[] = [];
   public currTask: any = null;
-  public selectedStatus: number | null = null;
-  public selectedTaskId: number | null = null;
+  public selectedStatus: any;
+  public selectedTaskId: any;
 
   localUser = localStorage.getItem('user');
 

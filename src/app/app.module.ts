@@ -19,6 +19,8 @@ import { DeskComponent } from './components/desk/desk.component';
 import { FormAuthComponent } from './components/form-auth/form-auth.component';
 import { TextInputComponent } from './components/UI/text-input/text-input.component';
 import { TaskComponent } from './components/task/task.component';
+import { PopupComponent } from './components/UI/popup/popup.component';
+import { CreateTaskPopupComponent } from './create-task-popup/create-task-popup.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { TaskComponent } from './components/task/task.component';
     FormAuthComponent,
     TextInputComponent,
     TaskComponent,
+    PopupComponent,
+    CreateTaskPopupComponent
   ],
   imports: [
     BrowserModule,
