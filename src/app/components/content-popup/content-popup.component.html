@@ -1,0 +1,5 @@
+<div class="content-task">
+    <app-combobox [(value)]="task.status_id" [list]="statuses" (valueChange)="onValueChange($event)"></app-combobox>
+    <app-text-input [(value)]="task.title" [type]="'text'" [placeholder]="'название'" (valueChange)="onTitleChange($event)"></app-text-input>
+    <app-text-area [(value)]="task.description" placeholder="описание" (valueChange)="onDescriptionChange($event)"></app-text-area>
+</div>

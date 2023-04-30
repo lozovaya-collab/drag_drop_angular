@@ -3,16 +3,13 @@
         <h4>{{ title }}</h4>
     </div>
     <div class="desk_tasks">
-        <app-task draggable="true" *ngFor="let task of filteredTasks; index as ind" [userLogin]="getUserLogin(task)" [index]="getTaskIndex(task.id)" [task]="task" (dragstart)="onDragStart($event, task)" (dragover)="onDragOver(task,$event)"></app-task>
+        <app-task draggable="true" *ngFor="let task of filteredTasks; index as ind" (deleteTask)="onDelete($event)" (edit)="onEdit($event)" [userLogin]="getUserLogin(task)" [index]="getTaskIndex(task.id)" [task]="task" (dragstart)="onDragStart($event, task)"
+            (dragover)="onDragOver(task,$event)"></app-task>
         <app-button [top]="top" [classOut]="'desk_action-btn'" [text]="'Добавить задачу'" (click)="openCreateTask(statusID)">
         </app-button>
     </div>
 </div>
 <app-create-task-popup *ngIf="selectedStatus" [isOpen]="selectedStatus" (isOpenChange)="selectedStatus = $event" [statusId]="selectedStatus" [(tasks)]="tasks"></app-create-task-popup>
 
-<!-- <app-edit-task-popup *ngIf="!!selectedTaskId"
-      [(isOpen)]="selectedTaskId"
-      [taskId]="selectedTaskId"
-      [(tasks)]="tasks"
-      [user]="currentUser.id">
-    </app-edit-task-popup>  -->
+<app-edit-task-popup *ngIf="!!selectedTaskId" [isOpen]="selectedTaskId" (isOpenChange)="selectedTaskId = $event" [taskId]="selectedTaskId" [(tasks)]="tasks" [user]="currentUser.id">
+</app-edit-task-popup>

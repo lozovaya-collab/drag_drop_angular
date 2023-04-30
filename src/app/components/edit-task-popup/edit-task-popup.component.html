@@ -1,0 +1,9 @@
+<app-popup [isOpen]="isOpen" [title]="titleElement()">
+    <div class="popup_content" content>
+        <app-content-popup [(task)]="task" (taskChange)="updateTask($event)"></app-content-popup>
+    </div>
+    <div class="popup_actions" actions>
+        <app-button (click)="closePopup()" text="OTMEНА"></app-button>
+        <app-button *ngIf="task && task.author_id === user" (click)="saveTask()" text="СОХРАНИТЬ"></app-button>
+    </div>
+</app-popup>

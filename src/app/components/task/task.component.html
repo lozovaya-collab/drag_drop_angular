@@ -3,8 +3,8 @@
         <div class="task-wrapper_container">
             <p *ngIf="userLogin !== -1" class="task-wrapper_container__login">{{ userLogin }}</p>
         </div>
-        <h5 class="task-wrapper_name">{{ task.id + task.title }}</h5>
-        <div class="task-wrapper_container">
+        <h5 class="task-wrapper_name" (click)="onEdit(task.id)">{{ task.title }}</h5>
+        <div class="task-wrapper_container" (click)="onDelete(userLogin !== -1 ? null : task.id)">
             <img *ngIf="userLogin === -1" class="task-wrapper_container__icon" [src]="src" alt="del">
         </div>
     </div>

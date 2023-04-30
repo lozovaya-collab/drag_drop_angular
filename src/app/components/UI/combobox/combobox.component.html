@@ -1,0 +1,6 @@
+<div class="combobox">
+    <select class="combobox_select" [(ngModel)]="value" (ngModelChange)="valueChange.emit($event)">
+    <option value="defaultOption" disabled>Выберите один из вариантов</option>
+    <option *ngFor="let option of list" [value]="option.id">{{ option.name }}</option>
+  </select>
+</div>

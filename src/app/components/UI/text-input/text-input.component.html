@@ -1,1 +1,1 @@
-<input class="text-input" (input)="updateValue($event.target)" class="text-input" [type]="type" [placeholder]="placeholder" />
+<input class="text-input" [(ngModel)]="value" (ngModelChange)="valueChange.emit($event)" class="text-input" [type]="type" [placeholder]="placeholder" />

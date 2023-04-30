@@ -47,13 +47,8 @@ export class DeskComponent implements OnInit,  DoCheck{
     this.selectedTaskId = null;
   }
 
-  openEditPopup(event: any) {
-    this.selectedStatus = null;
-    this.selectedTaskId = event.detail.id;
-  }
-
-  deleteTask(event: any) {
-    const id = event.detail.id;
+  onDelete(event: any) {
+    const id = event;
 
     if (id) {
       apiService.tasks.Delete(id).then(() => {
@@ -86,7 +81,7 @@ onDragEnterPrevent(event: DragEvent) {
   event.preventDefault();
 }
 
-  onDrop(event: any, statusId: number) {
+onDrop(event: any, statusId: number) {
     event.dataTransfer.dropEffect = 'move';
     const taskId = parseInt(event.dataTransfer.getData('taskId'));
     let arr = [...this.tasks]
@@ -126,6 +121,11 @@ onDragEnterPrevent(event: DragEvent) {
 
   getTaskIndex(taskId: number): number {
     return this.filteredTasks.findIndex(task => task.id === taskId);
+  }
+
+  onEdit(event: any) {
+    this.selectedStatus = null;
+    this.selectedTaskId = event;
   }
 
 

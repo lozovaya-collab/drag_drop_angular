@@ -1,12 +1,12 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { apiService } from '../../shared/api/swagger/swagger';
+import { Component, Input, Output, EventEmitter, DoCheck } from '@angular/core';
+import { apiService } from '../../../shared/api/swagger/swagger';
 
 @Component({
   selector: 'app-create-task-popup',
   templateUrl: './create-task-popup.component.html',
   styleUrls: ['./create-task-popup.component.scss']
 })
-export class CreateTaskPopupComponent {
+export class CreateTaskPopupComponent implements DoCheck {
   @Input() isOpen: boolean = false;
   @Input() statusId: any;
   @Input() tasks: any[] = [];
@@ -19,9 +19,21 @@ export class CreateTaskPopupComponent {
     title: '',
     description: ''
   };
+
   closePopup() {
     this.isOpenChange.emit(false);
   }
+
+  ngDoCheck(): void {
+    if (this.statusId && !this.task.status_id) {
+      this.task = {
+        status_id: this.statusId,
+        title: '',
+        description: ''
+      }
+    }
+  }
+
 
   saveTask() {
     apiService.tasks.Create({
@@ -39,24 +51,11 @@ export class CreateTaskPopupComponent {
 
 
 
-  updateTask(value: any) {
-    this.task = { ...this.task, ...value };
+  updateTask(updatedTask: any) {
+    this.task = updatedTask; // Update the task object with the updated task
   }
 
   titleElement() {
     return `создать задачу`;
-  }
-
-  contentElement() {
-    return `
-      <h1>eooeoeoeoeoeoe</h1>
-    `;
-  }
-
-  actionsElement() {
-    return `
-      <app-button (click)="closePopup()" type="text">ОТМЕНА</app-button>
-      <app-button (click)="saveTask()">СОХРАНИТЬ</app-button>
-    `;
   }
 }

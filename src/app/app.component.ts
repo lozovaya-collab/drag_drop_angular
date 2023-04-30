@@ -17,10 +17,8 @@ export class AppComponent implements OnInit {
   }
 
   async checkUser() {
-    console.log('check user')
     try {
       const res = await apiService.me.Me();
-      console.log('res', res)
       localStorage.setItem('user', JSON.stringify(res.data));
     } catch (err: any) {
       console.log('Error:', err.message);

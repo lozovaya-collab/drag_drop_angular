@@ -17,31 +17,6 @@ export class TextInputComponent {
   @Input() type: string = "default";
   @Input() placeholder: string = "";
   @Input() value: any;
-  @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 
-  writeValue(value: any) {
-    this.value = value;
-  }
-
-  registerOnChange(fn: any) {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: any) {
-    this.onTouched = fn;
-  }
-
-  onChange = (value: string) => {};
-  onTouched = () => {};
-
-  updateValue(target: any) {
-    const inputValue = target.value;
-
-    if (inputValue !== this.value) {
-      this.value = inputValue;
-      this.onChange(inputValue);
-      this.onTouched();
-      this.valueChange.emit(inputValue);
-    }
-  }
+  @Output() valueChange = new EventEmitter<any>();
 }
